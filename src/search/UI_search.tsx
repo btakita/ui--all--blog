@@ -72,7 +72,7 @@ export function UI_search($p:VoidProps<{
 					type="text"
 					name="search"
 					value={input__value_()}
-					onchange={input__onchange}
+					onkeydown={input__onkeydown}
 					autocomplete="off"
 					autofocus={true}
 					ref={$=>input__set($)}
@@ -106,7 +106,7 @@ export function UI_search($p:VoidProps<{
 			</ul>
 		</ctx__Context.Provider>
 	)
-	function input__onchange(e:Event&{ currentTarget:HTMLInputElement }) {
+	function input__onkeydown(e:Event&{ currentTarget:HTMLInputElement }) {
 		input__value__set(e.currentTarget.value)
 	}
 }
