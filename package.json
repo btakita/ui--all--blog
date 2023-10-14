@@ -1,0 +1,22 @@
+{
+  "name": "@btakita/ui--all--blog",
+  "type": "module",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@btakita/domain--all--blog": "workspace:*",
+    "@ctx-core/dom": "^14.2.1",
+    "@ctx-core/function": "^21.20.1",
+    "@ctx-core/html": "^11.4.0",
+    "@ctx-core/object": "^28.2.0",
+    "@ctx-core/solid-js": "^1.4.16",
+    "fuse.js": "^6.6.2",
+    "solid-js": "^1.8.1"
+  }
+}
