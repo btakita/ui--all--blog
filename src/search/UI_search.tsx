@@ -68,7 +68,7 @@ export function UI_search($p:VoidProps<{
 						border-opacity-40 bg-skin-fill py-3 pl-10
 						pr-3 placeholder:italic placeholder:text-opacity-75
 						focus:border-skin-accent focus:outline-none"
-					placeholder="Search for anything..."
+					placeholder="Search for anything…"
 					type="text"
 					name="search"
 					value={input__value_()}
