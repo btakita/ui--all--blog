@@ -1,6 +1,5 @@
 /// <reference lib="dom" />
-import { blog__ctx__new, post__slug__new, search_item_a__memo, type SearchResult } from '@btakita/domain--all--blog'
-import { nullish__none_ } from '@ctx-core/function'
+import { blog__ctx__new, post__slug__new, type SearchItem, type SearchResult } from '@btakita/domain--all--blog'
 import { type Ctx } from '@ctx-core/object'
 import { ctx__Context, ctx__Context__use } from '@ctx-core/solid-js'
 import Fuse from 'fuse.js'
@@ -8,20 +7,21 @@ import { createEffect, createMemo, createSignal, For, Show, type VoidProps } fro
 import { Card } from '../card'
 export function UI_search($p:VoidProps<{
 	ctx?:Ctx
+	search_item_a:SearchItem[]
 }>) {
 	const ctx = $p.ctx || ctx__Context__use() || blog__ctx__new()
+	const search_item_a = $p.search_item_a
 	const [input_, input__set] = createSignal<HTMLInputElement>()
 	const [input__value_, input__value__set] = createSignal('')
 	const [search_result_a_, search_result_a___set] = createSignal<SearchResult[]|null>(
 		null)
 	const fuse_ = createMemo(()=>
-		nullish__none_([search_item_a__memo(ctx)], search_item_a=>
-			new Fuse(search_item_a, {
-				keys: ['title', 'description'],
-				includeMatches: true,
-				minMatchCharLength: 2,
-				threshold: 0.5,
-			})))
+		new Fuse(search_item_a, {
+			keys: ['title', 'description'],
+			includeMatches: true,
+			minMatchCharLength: 2,
+			threshold: 0.5,
+		}))
 	createEffect(()=>{
 		// if URL has search query,
 		// insert that search query in input field
