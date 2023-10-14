@@ -1,6 +1,5 @@
 /// <reference lib="dom" />
-import { blog__ctx__new, search_item_a__memo, type SearchItem, type SearchResult } from '@btakita/domain--all--blog'
-import { post__slug_ } from '@btakita/domain--server--blog'
+import { blog__ctx__new, post__slug__new, search_item_a__memo, type SearchResult } from '@btakita/domain--all--blog'
 import { nullish__none_ } from '@ctx-core/function'
 import { type Ctx } from '@ctx-core/object'
 import { ctx__Context, ctx__Context__use } from '@ctx-core/solid-js'
@@ -97,7 +96,7 @@ export function UI_search($p:VoidProps<{
 						const item = search_result.item
 						return (
 							<Card
-								href={`/posts/${post__slug_(item.post__data)}`}
+								href={`/posts/${post__slug__new(item.post__data)}`}
 								post__data={item.post__data}
 							/>
 						)
