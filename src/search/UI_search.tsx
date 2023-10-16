@@ -13,8 +13,8 @@ export function UI_search($p:VoidProps<{
 	const search_item_a = $p.search_item_a
 	const [input_, input__set] = createSignal<HTMLInputElement>()
 	const [input__value_, input__value__set] = createSignal('')
-	const [search_result_a_, search_result_a___set] = createSignal<SearchResult[]|null>(
-		null)
+	const [search_result_a_, search_result_a___set] = createSignal<SearchResult[]>(
+		[])
 	const fuse_ = createMemo(()=>
 		new Fuse(search_item_a, {
 			keys: ['title', 'description'],
@@ -72,7 +72,7 @@ export function UI_search($p:VoidProps<{
 					type="text"
 					name="search"
 					value={input__value_()}
-					onkeydown={input__onkeydown}
+					onkeyup={input__onkeyup}
 					autocomplete="off"
 					autofocus={true}
 					ref={$=>input__set($)}
@@ -80,9 +80,9 @@ export function UI_search($p:VoidProps<{
 			</label>
 			<Show when={input__value_().length > 1}>
 				<div class="mt-8">
-					Found {search_result_a_?.length}
+					Found {search_result_a_().length}
 					<Show
-						when={search_result_a_?.length && search_result_a_?.length === 1}
+						when={search_result_a_().length && search_result_a_().length === 1}
 						fallback={' results'}
 					>
 						{' '}result
@@ -91,22 +91,20 @@ export function UI_search($p:VoidProps<{
 				</div>
 			</Show>
 			<ul>
-				<Show when={search_result_a_()}>
-					<For each={search_result_a_()}>{search_result=>{
-						const item = search_result.item
-						return (
-							<Card
-								href={`/posts/${post__slug__new(item.post__data)}`}
-								post__data={item.post__data}
-							/>
-						)
-					}}
-					</For>
-				</Show>
+				<For each={search_result_a_()}>{search_result=>{
+					const item = search_result.item
+					return (
+						<Card
+							href={`/posts/${post__slug__new(item.post__data)}`}
+							post__data={item.post__data}
+						/>
+					)
+				}}
+				</For>
 			</ul>
 		</ctx__Context.Provider>
 	)
-	function input__onkeydown(e:Event&{ currentTarget:HTMLInputElement }) {
+	function input__onkeyup(e:Event&{ currentTarget:HTMLInputElement }) {
 		input__value__set(e.currentTarget.value)
 	}
 }
