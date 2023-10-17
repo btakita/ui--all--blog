@@ -1,4 +1,4 @@
-import { type Post } from '@btakita/domain--all--blog'
+import { type Post, type SearchItem } from '@btakita/domain--all--blog'
 import { style_ } from '@ctx-core/html'
 import { slug } from 'github-slugger'
 import { Show, type VoidProps } from 'solid-js'
@@ -6,17 +6,18 @@ import { Datetime } from '../date'
 export function Card(
 	$p:VoidProps<{
 		href?:string
-		post__data:Post['data']
+		post:Post|SearchItem
 		show_heading?:boolean
 		locale?:string
 	}>
 ) {
 	const href = $p.href
-	const post__data = $p.post__data
+	const post = $p.post
+	const data = post.data
 	const show_heading = $p.show_heading
-	const title = post__data.title
-	const pubDate = post__data.pubDate
-	const description = post__data.description
+	const title = data.title
+	const pubDate = data.pubDate
+	const description = data.description
 	const h_props = {
 		style: style_({
 			'view-transition-name': slug(title)

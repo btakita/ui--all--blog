@@ -95,8 +95,8 @@ export function UI_search($p:VoidProps<{
 					const item = search_result.item
 					return (
 						<Card
-							href={`/posts/${post__slug__new(item.post__data)}`}
-							post__data={item.post__data}
+							href={`/posts/${post__slug__new(item)}`}
+							post={item}
 						/>
 					)
 				}}
