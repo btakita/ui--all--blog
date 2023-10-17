@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@btakita/domain--all--blog": "workspace:*",
-    "@ctx-core/dom": "^14.2.2",
+    "@ctx-core/dom": "^14.2.3",
     "@ctx-core/function": "^21.20.1",
     "@ctx-core/html": "^11.5.0",
     "@ctx-core/object": "^28.2.0",
