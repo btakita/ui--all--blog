@@ -1,2 +1,2 @@
 # ui--all--blog
-UI library in browser &amp; server environments for blogs
+UI library targeting the browser & server for blogs
