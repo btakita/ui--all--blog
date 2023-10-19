@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@btakita/domain--all--blog": "workspace:*",
-    "@ctx-core/dom": "^14.2.3",
-    "@ctx-core/function": "^21.20.1",
-    "@ctx-core/html": "^11.5.0",
-    "@ctx-core/object": "^28.2.0",
-    "@ctx-core/solid-js": "^1.4.16",
+    "@ctx-core/dom": "^14.2.4",
+    "@ctx-core/function": "^21.20.2",
+    "@ctx-core/html": "^11.5.1",
+    "@ctx-core/object": "^28.2.1",
+    "@ctx-core/solid-js": "^1.4.17",
     "fuse.js": "^6.6.2",
-    "solid-js": "^1.8.1"
+    "solid-js": "^1.8.3"
   }
 }
