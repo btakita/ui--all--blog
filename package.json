@@ -15,8 +15,8 @@
     "@ctx-core/function": "^21.20.2",
     "@ctx-core/html": "^11.5.1",
     "@ctx-core/object": "^28.2.1",
-    "@ctx-core/solid-js": "^1.4.19",
-    "fuse.js": "^6.6.2",
-    "solid-js": "^1.8.3"
+    "@ctx-core/solid-js": "^1.4.20",
+    "fuse.js": "^7.0.0",
+    "solid-js": "^1.8.4"
   }
 }
