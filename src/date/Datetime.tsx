@@ -10,7 +10,7 @@ export function Datetime(
 ) {
 	const size = $p.size || 'sm'
 	return (
-		<div class={class_('flex items-center space-x-2 opacity-80', $p.class)}>
+		<div class={class_('flex items-center space-x-2', $p.class)}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class={`${
