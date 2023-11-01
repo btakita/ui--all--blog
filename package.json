@@ -11,12 +11,13 @@
   },
   "dependencies": {
     "@btakita/domain--all--blog": "workspace:*",
-    "@ctx-core/dom": "^14.2.4",
+    "@ctx-core/dom": "^14.3.0",
     "@ctx-core/function": "^21.20.2",
     "@ctx-core/html": "^11.5.1",
     "@ctx-core/object": "^28.2.1",
-    "@ctx-core/solid-js": "^1.4.20",
+    "@ctx-core/solid-js": "^1.4.21",
     "fuse.js": "^7.0.0",
-    "solid-js": "^1.8.4"
+    "mini-van-plate": "^0.5.3",
+    "solid-js": "^1.8.5"
   }
 }
