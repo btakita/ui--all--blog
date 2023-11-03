@@ -1,5 +1,6 @@
 /// <reference lib="dom" />
-import { H_, van__elementProto_T, van_internals_ } from '@btakita/domain--all--blog'
+import { H_, type van__elementProto_T, van_internals_ } from '@btakita/domain--all--blog'
+import { compact } from '@ctx-core/array'
 import { fragment_ } from '@ctx-core/dom'
 import { type Ctx } from '@ctx-core/object'
 import type { ChildDom, CoreChildDom, CoreVan, PlateElement, PlateVan, VanShape } from 'van-type-delegate'
@@ -8,10 +9,11 @@ export function V_fragment<
 	R extends (ChildDom<V>|V_fragment__return_T<V>) = V_fragment__return_T<V>
 >(
 	{ ctx }:{ ctx:Ctx },
-	...children:ChildDom<V>[]
+	..._children:ChildDom<V>[]
 ):R {
 	if (globalThis['window']) return window__fragment_()
 	const { elementProto, plainValue, protoOf } = van_internals_<V>(ctx)
+	const children = compact(_children)
 	return Object.setPrototypeOf({
 		children,
 		renderToBuf(buf:any[]) {

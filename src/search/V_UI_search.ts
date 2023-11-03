@@ -37,17 +37,11 @@ export function V_UI_search<V extends CoreVan>(
 	van.derive(()=>{
 		// Add search result only if
 		// input value is more than one character
-		console.debug('search|debug|1', {
-			input__value: input__value$.val,
-		})
 		let search_result_a =
 			input__value$.val.length > 1
 				? fuse$.val.search(input__value$.val)
 				: []
 		search_result_a$.val = search_result_a
-		console.debug('search|debug|2', {
-			search_result_a: search_result_a,
-		})
 		// Update search string in URL
 		if (input__value$.val.length > 0) {
 			const searchParams = new URLSearchParams(window.location.search)
@@ -113,7 +107,6 @@ export function V_UI_search<V extends CoreVan>(
 		return input
 	}
 	function input__onkeydown(e:KeyboardEvent&{ currentTarget:HTMLInputElement }) {
-		console.debug('input__onkeydown|debug|1', { e })
 		switch (true) {
 			case e.key === 'ArrowUp':
 				e.preventDefault()
