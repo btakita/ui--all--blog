@@ -1,1 +1,2 @@
-export * from './Card.tsx'
+export * from './Card'
+export * from './V_card'
