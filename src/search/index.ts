@@ -1,2 +1,2 @@
-export * from './Main_search__onbind'
-export * from './UI_search'
+export * from './Main_search__onbind.tsx'
+export * from './UI_search.tsx'
