@@ -1,7 +1,6 @@
-import { H_, S_ } from '@btakita/domain--all--blog'
 import { class_ } from '@ctx-core/html'
 import { type Ctx } from '@ctx-core/object'
-import { V_fragment } from '@ctx-core/vanjs'
+import { H_, S_, V_fragment } from '@ctx-core/vanjs'
 import type { ChildDom, VanShape } from 'van-type-delegate'
 export function V_datetime<V extends VanShape>({
 	ctx,

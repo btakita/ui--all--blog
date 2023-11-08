@@ -1,6 +1,7 @@
-import { H_, Post, SearchItem } from '@btakita/domain--all--blog'
+import { Post, SearchItem } from '@btakita/domain--all--blog'
 import { class_, style_ } from '@ctx-core/html'
 import { type Ctx } from '@ctx-core/object'
+import { H_ } from '@ctx-core/vanjs'
 import { slug } from 'github-slugger'
 import type { VanShape } from 'van-type-delegate'
 import { V_datetime } from '../date'
