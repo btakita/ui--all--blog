@@ -1,8 +1,9 @@
 import { class_ } from '@ctx-core/html'
-import { type Ctx } from '@ctx-core/object'
-import { H_, S_, V_fragment } from '@ctx-core/vanjs'
-import type { ChildDom, VanShape } from 'van-type-delegate'
-export function V_datetime<V extends VanShape>({
+import { type Ctx } from 'ctx-core/object'
+import { fragment_, type fragment_T, type relement_env_T } from 'relementjs'
+import { div_, span_ } from 'relementjs/html'
+import { path_, svg_ } from 'relementjs/svg'
+export function V_datetime<env_T extends relement_env_T>({
 	ctx,
 	datetime,
 	locale,
@@ -15,24 +16,22 @@ export function V_datetime<V extends VanShape>({
 	class?:string
 }) {
 	const size = $p.size || 'sm'
-	const H = H_<V>(ctx)
-	const S = S_<V>(ctx)
 	return (
-		H.div({ class: class_('flex items-center space-x-2', $p.class) },
-			S.svg({
+		div_({ class: class_('flex items-center space-x-2', $p.class) },
+			svg_({
 					xmlns: 'http://www.w3.org/2000/svg',
 					class: class_(size === 'sm' ? 'scale-90' : 'scale-100', 'inline-block h-6 w-6 fill-skin-base'),
 					'aria-hidden': true
 				},
-				S.path({ d: 'M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z' }),
-				S.path(
+				path_({ d: 'M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z' }),
+				path_(
 					{ d: 'M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z' })),
-			H.span({ class: 'sr-only' }, 'Posted on:'),
-			H.span({ class: class_('italic', size === 'sm' ? 'text-sm' : 'text-base') },
-				V_formatted_datetime<V>({ ctx, datetime, locale })))
+			span_({ class: 'sr-only' }, 'Posted on:'),
+			span_({ class: class_('italic', size === 'sm' ? 'text-sm' : 'text-base') },
+				V_formatted_datetime<env_T>({ ctx, datetime, locale })))
 	)
 }
-function V_formatted_datetime<V extends VanShape>({ ctx, datetime, ...$p }:{
+function V_formatted_datetime<env_T extends relement_env_T>({ ctx, datetime, ...$p }:{
 	ctx:Ctx
 	datetime:string|Date
 	locale?:string
@@ -48,13 +47,10 @@ function V_formatted_datetime<V extends VanShape>({ ctx, datetime, ...$p }:{
 		hour: '2-digit',
 		minute: '2-digit',
 	})
-	const H = H_<V>(ctx)
 	return (
-		V_fragment<V, ChildDom<V>>(
-			{ ctx },
+		fragment_(
 			date,
-			H.span({ 'aria-hidden': true }, ' | '),
-			H.span({ class: 'sr-only' }, ' at '),
-			time)
-	)
+			span_({ 'aria-hidden': true }, ' | '),
+			span_({ class: 'sr-only' }, ' at '),
+			time)) as fragment_T<env_T>
 }

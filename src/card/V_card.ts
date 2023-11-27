@@ -1,11 +1,11 @@
-import { Post, SearchItem } from '@btakita/domain--all--blog'
+import { type Post, type SearchItem } from '@btakita/domain--all--blog'
 import { class_, style_ } from '@ctx-core/html'
-import { type Ctx } from '@ctx-core/object'
-import { H_ } from '@ctx-core/vanjs'
+import { type Ctx } from 'ctx-core/object'
 import { slug } from 'github-slugger'
-import type { VanShape } from 'van-type-delegate'
-import { V_datetime } from '../date'
-export function V_card<V extends VanShape>({
+import { type Node_T, type relement_env_T } from 'relementjs'
+import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'
+import { V_datetime } from '../date/index.js'
+export function V_card<env_T extends relement_env_T>({
 	ctx, href, post, show_heading, locale, ...$p
 }:{
 	ctx:Ctx
@@ -27,17 +27,16 @@ export function V_card<V extends VanShape>({
 		}),
 		class: 'text-lg font-medium decoration-dashed hover:underline',
 	}
-	const H = H_<V>(ctx)
 	return (
-		H.li({ class: class_('Card my-6', $p.class) },
-			H.a({
+		li_({ class: class_('Card my-6', $p.class) },
+			a_({
 					href,
 					class: 'inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0'
 				},
 				show_heading
-					? H.h2({ ...h_props }, title)
-					: H.h3({ ...h_props }, title)),
-			V_datetime({ ctx, datetime: pubDate, locale }),
-			H.p(description))
-	)
+					? h2_({ ...h_props }, title)
+					: h3_({ ...h_props }, title)),
+			V_datetime<env_T>({ ctx, datetime: pubDate, locale }),
+			p_(description))
+	) as Node_T<env_T, HTMLElementTagNameMap['li']>
 }

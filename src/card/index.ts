@@ -1,2 +1,1 @@
-export * from './Card'
-export * from './V_card'
+export * from './V_card.js'
