@@ -8,7 +8,10 @@ import { path_, svg_ } from 'relementjs/svg'
 import { V_card } from '../card/index.js'
 import './UI_search.css'
 export function V_UI_search<env_T extends relement_env_T>(
-	{ ctx, search_item_a }:{ ctx:Ctx, search_item_a:SearchItem[] }
+	{ ctx, search_item_a }:{
+		ctx:Ctx,
+		search_item_a:SearchItem[]
+	}
 ) {
 	const input$ = sig_<HTMLInputElement|undefined>(undefined)
 	const input__value$ = sig_('')
@@ -42,7 +45,7 @@ export function V_UI_search<env_T extends relement_env_T>(
 			}
 		})
 	const search_result_a__length$ = memo_(()=>
-		search_result_a$.length)
+		search_result_a$().length)
 	input__init()
 	return (
 		div_({ class: 'UI_search' },
@@ -131,7 +134,9 @@ export function V_UI_search<env_T extends relement_env_T>(
 		input$._ = input
 		return input
 	}
-	function input__onkeydown(e:KeyboardEvent&{ currentTarget:HTMLInputElement }) {
+	function input__onkeydown(e:KeyboardEvent&{
+		currentTarget:HTMLInputElement
+	}) {
 		switch (true) {
 			case e.key === 'ArrowDown':
 				e.preventDefault()
@@ -147,7 +152,9 @@ export function V_UI_search<env_T extends relement_env_T>(
 				break
 		}
 	}
-	function input__onkeyup(e:KeyboardEvent&{ currentTarget:HTMLInputElement }) {
+	function input__onkeyup(e:KeyboardEvent&{
+		currentTarget:HTMLInputElement
+	}) {
 		input__value$._ = e.currentTarget.value
 	}
 }
