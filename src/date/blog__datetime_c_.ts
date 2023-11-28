@@ -3,7 +3,7 @@ import { type Ctx } from 'ctx-core/object'
 import { fragment_, type fragment_T, type relement_env_T } from 'relementjs'
 import { div_, span_ } from 'relementjs/html'
 import { path_, svg_ } from 'relementjs/svg'
-export function V_datetime<env_T extends relement_env_T>({
+export function blog__datetime_c_<env_T extends relement_env_T>({
 	ctx,
 	datetime,
 	locale,
@@ -28,10 +28,10 @@ export function V_datetime<env_T extends relement_env_T>({
 					{ d: 'M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z' })),
 			span_({ class: 'sr-only' }, 'Posted on:'),
 			span_({ class: class_('italic', size === 'sm' ? 'text-sm' : 'text-base') },
-				V_formatted_datetime<env_T>({ ctx, datetime, locale })))
+				formatted_datetime_c_<env_T>({ ctx, datetime, locale })))
 	)
 }
-function V_formatted_datetime<env_T extends relement_env_T>({ ctx, datetime, ...$p }:{
+function formatted_datetime_c_<env_T extends relement_env_T>({ ctx, datetime, ...$p }:{
 	ctx:Ctx
 	datetime:string|Date
 	locale?:string

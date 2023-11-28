@@ -4,8 +4,8 @@ import { type Ctx } from 'ctx-core/object'
 import { slug } from 'github-slugger'
 import { type Node_T, type relement_env_T } from 'relementjs'
 import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'
-import { V_datetime } from '../date/index.js'
-export function V_card<env_T extends relement_env_T>({
+import { blog__datetime_c_ } from '../date/index.js'
+export function blog__card_c_<env_T extends relement_env_T>({
 	ctx, href, post, show_heading, locale, ...$p
 }:{
 	ctx:Ctx
@@ -36,7 +36,7 @@ export function V_card<env_T extends relement_env_T>({
 				show_heading
 					? h2_({ ...h_props }, title)
 					: h3_({ ...h_props }, title)),
-			V_datetime<env_T>({ ctx, datetime: pubDate, locale }),
+			blog__datetime_c_<env_T>({ ctx, datetime: pubDate, locale }),
 			p_(description))
 	) as Node_T<env_T, HTMLElementTagNameMap['li']>
 }

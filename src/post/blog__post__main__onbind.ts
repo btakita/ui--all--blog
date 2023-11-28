@@ -1,12 +1,12 @@
 /// <reference lib="dom" />
 import { estimate_read_time_html__new } from '@btakita/domain--all--blog'
 import { has_dom, id__dom__handler_ } from '@ctx-core/dom'
-export const Main_post__onbind = id__dom__handler_(
-	'Main_post__onbind',
+export const blog__post__main__onbind = id__dom__handler_(
+	'blog__post__main__onbind',
 	(Main_post:HTMLDivElement)=>{
-		browser__Main_post__onbind(Main_post)
+		browser__post__main__onbind(Main_post)
 	})
-function browser__Main_post__onbind(Main_post:HTMLDivElement) {
+function browser__post__main__onbind(Main_post:HTMLDivElement) {
 	if (!has_dom) return
 	const estimate_read_time_E =
 		Main_post.querySelector<HTMLDivElement>('.estimate_read_time')

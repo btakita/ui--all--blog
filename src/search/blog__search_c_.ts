@@ -1,13 +1,13 @@
 /// <reference lib="dom" />
-import { post__path__new, type SearchItem, SearchResult } from '@btakita/domain--all--blog'
+import { post__path__new, type SearchItem, type SearchResult } from '@btakita/domain--all--blog'
 import { type Ctx } from 'ctx-core/object'
 import Fuse, { FuseResult } from 'fuse.js'
-import { attach, memo_, Node_T, type relement_env_T, sig_ } from 'relementjs'
+import { attach, memo_, type Node_T, type relement_env_T, sig_ } from 'relementjs'
 import { div_, input_, label_, span_, ul_ } from 'relementjs/html'
 import { path_, svg_ } from 'relementjs/svg'
-import { V_card } from '../card/index.js'
-import './UI_search.css'
-export function V_UI_search<env_T extends relement_env_T>(
+import { blog__card_c_ } from '../card/index.js'
+import './blog__search_c.css'
+export function blog__search_c_<env_T extends relement_env_T>(
 	{ ctx, search_item_a }:{
 		ctx:Ctx,
 		search_item_a:SearchItem[]
@@ -48,10 +48,10 @@ export function V_UI_search<env_T extends relement_env_T>(
 		search_result_a$().length)
 	input__init()
 	return (
-		div_({ class: 'UI_search' },
-			V_input(),
-			V_results_found(),
-			V_results_children())) as Node_T<env_T, HTMLElementTagNameMap['div']>
+		div_({ class: 'blog__search_c' },
+			search__input_c_(),
+			search__results_found_c_(),
+			search__results_children_c_())) as Node_T<env_T, HTMLElementTagNameMap['div']>
 	function input__init() {
 		// if URL has search query,
 		// insert that search query in input field
@@ -64,7 +64,7 @@ export function V_UI_search<env_T extends relement_env_T>(
 				search_str?.length || 0
 		}, 50)
 	}
-	function V_input() {
+	function search__input_c_() {
 		return (
 			label_({ class: 'relative block' },
 				span_({ class: 'absolute inset-y-0 left-0 flex items-center pl-2 opacity-75' },
@@ -75,10 +75,10 @@ export function V_UI_search<env_T extends relement_env_T>(
 						path_({
 							d: 'M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z'
 						}))),
-				C_input_())
+				search__input_())
 		)
 	}
-	function V_results_found() {
+	function search__results_found_c_() {
 		const show$ = memo_(()=>
 			input__value$().length > 1)
 		return (
@@ -93,7 +93,7 @@ export function V_UI_search<env_T extends relement_env_T>(
 				: undefined
 		)
 	}
-	function V_results_children() {
+	function search__results_children_c_() {
 		let search_result_a:SearchResult[]
 		return (_ul?:HTMLUListElement)=>{
 			const ul = _ul ?? ul_<'browser'>()
@@ -106,7 +106,7 @@ export function V_UI_search<env_T extends relement_env_T>(
 				attach(ul, ...search_result_a$().map((search_result:SearchResult, idx:number)=>{
 					const item = search_result.item
 					return (()=>
-						V_card({
+						blog__card_c_({
 							ctx,
 							href: post__path__new(item),
 							class: idx === highlight__idx$() ? 'highlight' : '',
@@ -116,7 +116,7 @@ export function V_UI_search<env_T extends relement_env_T>(
 			}
 		}
 	}
-	function C_input_() {
+	function search__input_() {
 		const input =
 			input_({
 				class:

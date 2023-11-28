@@ -1,1 +1,1 @@
-export * from './Main_post__onbind.js'
+export * from './blog__post__main__onbind.js'
