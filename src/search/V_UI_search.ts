@@ -12,32 +12,16 @@ export function V_UI_search<env_T extends relement_env_T>(
 ) {
 	const input$ = sig_<HTMLInputElement|undefined>(undefined)
 	const input__value$ = sig_('')
-	const search_result_a$ = sig_<FuseResult<SearchItem>[]>([])
-	const search_result_a__length$ = memo_(()=>
-		search_result_a$.length)
 	const highlight__idx$ = sig_(0)
-	const fuse$ = memo_(()=>
+	const fuse$ = sig_(
 		new Fuse(search_item_a, {
 			keys: ['title', 'description'],
 			includeMatches: true,
 			minMatchCharLength: 2,
 			threshold: 0.5,
 		}))
-	const effect_a = [
-		memo_(memo=>{
-			// if URL has search query,
-			// insert that search query in input field
-			const search_url = new URLSearchParams(window.location.search)
-			const search_str = search_url.get('q')
-			if (search_str) input__value$._ = search_str
-			// put focus cursor at the end of the string
-			setTimeout(()=>{
-				input$()!.selectionStart = input$()!.selectionEnd =
-					search_str?.length || 0
-			}, 50)
-			return memo
-		})(),
-		memo_(memo=>{
+	const search_result_a$ = sig_<FuseResult<SearchItem>[]>([],
+		search_result_a$=>{
 			// Add search result only if
 			// input value is more than one character
 			let search_result_a =
@@ -56,14 +40,27 @@ export function V_UI_search<env_T extends relement_env_T>(
 			else {
 				history.replaceState(history.state, '', window.location.pathname)
 			}
-			return memo
-		})()
-	]
+		})
+	const search_result_a__length$ = memo_(()=>
+		search_result_a$.length)
+	input__init()
 	return (
 		div_({ class: 'UI_search' },
 			V_input(),
 			V_results_found(),
 			V_results_children())) as Node_T<env_T, HTMLElementTagNameMap['div']>
+	function input__init() {
+		// if URL has search query,
+		// insert that search query in input field
+		const search_url = new URLSearchParams(window.location.search)
+		const search_str = search_url.get('q')
+		if (search_str) input__value$._ = search_str
+		// put focus cursor at the end of the string
+		setTimeout(()=>{
+			input$()!.selectionStart = input$()!.selectionEnd =
+				search_str?.length || 0
+		}, 50)
+	}
 	function V_input() {
 		return (
 			label_({ class: 'relative block' },
