@@ -1,4 +1,4 @@
-import { type Post, type SearchItem } from '@btakita/domain--all--blog'
+import { type Post, type SearchItem } from '@btakita/domain--any--blog'
 import { class_, style_ } from '@ctx-core/html'
 import { type Ctx } from 'ctx-core/object'
 import { slug } from 'github-slugger'

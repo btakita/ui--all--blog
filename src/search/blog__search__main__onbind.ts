@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import { type SearchItem } from '@btakita/domain--all--blog'
+import { type SearchItem } from '@btakita/domain--any--blog'
 import { id__dom__handler_ } from '@ctx-core/dom'
 import { type Ctx } from 'ctx-core/object'
 import { attach } from 'relementjs'

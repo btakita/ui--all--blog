@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import { estimate_read_time_html__new } from '@btakita/domain--all--blog'
+import { estimate_read_time_html__new } from '@btakita/domain--any--blog'
 import { has_dom, id__dom__handler_ } from '@ctx-core/dom'
 export const blog__post__main__onbind = id__dom__handler_(
 	'blog__post__main__onbind',

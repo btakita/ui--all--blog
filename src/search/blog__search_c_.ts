@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import { post__path__new, type SearchItem, type SearchResult } from '@btakita/domain--all--blog'
+import { post__path__new, type SearchItem, type SearchResult } from '@btakita/domain--any--blog'
 import { type Ctx } from 'ctx-core/object'
 import Fuse, { FuseResult } from 'fuse.js'
 import { attach, memo_, type Node_T, type relement_env_T, sig_ } from 'relementjs'
