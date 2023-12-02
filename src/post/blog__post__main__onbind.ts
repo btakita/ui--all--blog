@@ -1,13 +1,13 @@
 /// <reference lib="dom" />
 import { estimate_read_time_html__new } from '@btakita/domain--any--blog'
-import { has_dom, id__dom__handler_ } from '@ctx-core/dom'
+import { id__dom__handler_, no_dom } from '@ctx-core/dom'
 export const blog__post__main__onbind = id__dom__handler_(
 	'blog__post__main__onbind',
 	(Main_post:HTMLDivElement)=>{
 		browser__post__main__onbind(Main_post)
 	})
 function browser__post__main__onbind(Main_post:HTMLDivElement) {
-	if (!has_dom) return
+	if (no_dom) return
 	const estimate_read_time_E =
 		Main_post.querySelector<HTMLDivElement>('.estimate_read_time')
 	if (!estimate_read_time_E || !estimate_read_time_E.classList.contains('hidden')) return
