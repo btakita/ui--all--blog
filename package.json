@@ -9,7 +9,7 @@
 		"@ctx-core/html": "^11.6.34",
 		"ctx-core": "^4.9.0",
 		"fuse.js": "^7.0.0",
-		"relementjs": "^0.17.3"
+		"relementjs": "^0.18.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
