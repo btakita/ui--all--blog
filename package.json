@@ -6,11 +6,11 @@
 	"types": "src/index.ts",
 	"dependencies": {
 		"@btakita/domain--any--blog": "workspace:*",
-		"@ctx-core/dom": "^15.1.68",
-		"@ctx-core/html": "^11.6.67",
-		"ctx-core": "^5.4.1",
+		"@ctx-core/dom": "^15.1.69",
+		"@ctx-core/html": "^11.6.68",
+		"ctx-core": "^5.5.0",
 		"fuse.js": "^7.0.0",
-		"relementjs": "^0.33.0"
+		"relementjs": "^0.34.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
