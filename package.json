@@ -2,15 +2,24 @@
 	"name": "@btakita/ui--any--blog",
 	"type": "module",
 	"version": "0.0.0",
-	"module": "src/index.ts",
-	"types": "src/index.ts",
+	"module": "index.ts",
+	"types": "./index.ts",
+	"exports": {
+		".": "./index.ts",
+		"./card": "./card/index.ts",
+		"./date": "./date/index.ts",
+		"./post": "./post/index.ts",
+		"./search": "./search/index.ts",
+		"./package.json": "./package.json"
+	},
 	"dependencies": {
 		"@btakita/domain--any--blog": "workspace:*",
-		"@ctx-core/dom": "^15.1.69",
+		"@ctx-core/dom": "^15.2.0",
 		"@ctx-core/html": "^11.6.68",
 		"ctx-core": "^5.5.0",
 		"fuse.js": "^7.0.0",
-		"relementjs": "^0.34.0"
+		"rebuildjs": "^0.23.0",
+		"relementjs": "^0.35.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
