@@ -12,6 +12,15 @@
 		"./search": "./search/index.ts",
 		"./package.json": "./package.json"
 	},
+	"files": [
+		"*.d.ts",
+		"*.js",
+		"*.json",
+		"card",
+		"date",
+		"post",
+		"search"
+	],
 	"dependencies": {
 		"@btakita/domain--any--blog": "workspace:*",
 		"@ctx-core/dom": "^15.2.0",
