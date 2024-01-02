@@ -27,7 +27,7 @@
 		"@ctx-core/html": "^11.6.73",
 		"ctx-core": "^5.10.0",
 		"fuse.js": "^7.0.0",
-		"rebuildjs": "^0.29.2",
+		"rebuildjs": "^0.29.3",
 		"relementjs": "^0.39.0"
 	},
 	"devDependencies": {
