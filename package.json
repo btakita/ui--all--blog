@@ -28,7 +28,7 @@
 		"ctx-core": "^5.16.1",
 		"fuse.js": "^7.0.0",
 		"rebuildjs": "^0.34.4",
-		"relementjs": "^0.44.1"
+		"relementjs": "^0.45.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
