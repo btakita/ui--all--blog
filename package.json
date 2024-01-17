@@ -23,12 +23,12 @@
 	],
 	"dependencies": {
 		"@btakita/domain--any--blog": "workspace:*",
-		"@ctx-core/dom": "^15.2.27",
-		"@ctx-core/html": "^11.6.95",
-		"ctx-core": "^5.19.2",
+		"@ctx-core/dom": "^15.2.28",
+		"@ctx-core/html": "^11.6.96",
+		"ctx-core": "^5.20.0",
 		"fuse.js": "^7.0.0",
-		"rebuildjs": "^0.37.11",
-		"relementjs": "^0.48.12"
+		"rebuildjs": "^0.37.12",
+		"relementjs": "^0.48.13"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
