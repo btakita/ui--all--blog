@@ -1,3 +1,4 @@
+import { post_date_ } from '@btakita/domain--any--blog'
 import { class_ } from '@ctx-core/html'
 import { is_server_ } from 'ctx-core/all'
 import { fragment_, type relement_env_T } from 'relementjs'
@@ -56,10 +57,7 @@ function formatted_datetime__fragment_<env_T extends relement_env_T>({
 	locale?:Intl.LocalesArgument
 }) {
 	locale ??= 'en-EN'
-	const _date = new Date(
-		typeof datetime === 'string' && is_server_()
-			? datetime.replace(/Z$/, '')
-			: datetime)
+	const _date = post_date_(datetime)
 	const date = _date.toLocaleDateString(locale, {
 		year: 'numeric',
 		month: 'long',
