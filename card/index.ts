@@ -1,1 +1,1 @@
-export * from './blog__card_c_.js'
+export * from './blog_card__li.js'

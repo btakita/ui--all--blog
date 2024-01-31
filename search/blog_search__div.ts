@@ -1,50 +1,51 @@
 /// <reference lib="dom" />
-import { post__path__new, type SearchItem, type SearchResult } from '@btakita/domain--any--blog'
+import { type dehydrated_post_meta_T, post__path__new, type SearchResult } from '@btakita/domain--any--blog'
+import { class_ } from '@ctx-core/html'
 import Fuse, { type FuseResult } from 'fuse.js'
 import { attach, memo_, type Node_T, type relement_env_T, sig_ } from 'relementjs'
 import { div_, input_, label_, span_, ul_ } from 'relementjs/html'
 import { path_, svg_ } from 'relementjs/svg'
-import { blog__card_c_ } from '../card/index.js'
-import './blog__search_c.css'
-export function blog__search_c_<env_T extends relement_env_T>(
-	{ search_item_a }:{ search_item_a:SearchItem[] }
+import { blog_card__li_ } from '../card/index.js'
+export function blog_search__div_<env_T extends relement_env_T>(
+	{ dehydrated_post_meta_a1 }:{ dehydrated_post_meta_a1:dehydrated_post_meta_T[] }
 ) {
 	const input$ = sig_<HTMLInputElement|undefined>(undefined)
 	const input__value$ = sig_('')
 	const highlight__idx$ = sig_(0)
 	const fuse$ = sig_(
-		new Fuse(search_item_a, {
+		new Fuse(dehydrated_post_meta_a1, {
 			keys: ['title', 'description'],
 			includeMatches: true,
 			minMatchCharLength: 2,
 			threshold: 0.5,
 		}))
-	const search_result_a$ = sig_<FuseResult<SearchItem>[]>([],
-		search_result_a$=>{
-			// Add search result only if
-			// input value is more than one character
-			const search_result_a =
-				input__value$().length > 1
-					? fuse$().search(input__value$())
-					: []
-			search_result_a$._ = search_result_a
-			// Update search string in URL
-			if (input__value$().length > 0) {
-				const searchParams = new URLSearchParams(window.location.search)
-				searchParams.set('q', input__value$())
-				const newRelativePathQuery =
-					window.location.pathname + '?' + searchParams.toString()
-				history.replaceState(history.state, '', newRelativePathQuery)
-			}
-			else {
-				history.replaceState(history.state, '', window.location.pathname)
-			}
-		})
+	const search_result_a$ = sig_<
+		FuseResult<dehydrated_post_meta_T>[]
+	>([]).add(search_result_a$=>{
+		// Add search result only if
+		// input value is more than one character
+		const search_result_a =
+			input__value$().length > 1
+				? fuse$().search(input__value$())
+				: []
+		search_result_a$._ = search_result_a
+		// Update search string in URL
+		if (input__value$().length > 0) {
+			const searchParams = new URLSearchParams(window.location.search)
+			searchParams.set('q', input__value$())
+			const newRelativePathQuery =
+				window.location.pathname + '?' + searchParams.toString()
+			history.replaceState(history.state, '', newRelativePathQuery)
+		}
+		else {
+			history.replaceState(history.state, '', window.location.pathname)
+		}
+	})
 	const search_result_a__length$ = memo_(()=>
 		search_result_a$().length)
 	input__init()
 	return (
-		div_({ class: 'blog__search_c' },
+		div_({ class: 'blog_search__div' },
 			search__input_c_(),
 			search__results_found_c_(),
 			search__results_children_c_())) as Node_T<env_T, HTMLElementTagNameMap['div']>
@@ -65,12 +66,12 @@ export function blog__search_c_<env_T extends relement_env_T>(
 			label_({ class: 'relative block' },
 				span_({ class: 'absolute inset-y-0 left-0 flex items-center pl-2 opacity-75' },
 					svg_({
-						xmlns: 'http://www.w3.org/2000/svg',
-						'aria-hidden': true
-					},
-					path_({
-						d: 'M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z'
-					}))),
+							xmlns: 'http://www.w3.org/2000/svg',
+							'aria-hidden': true
+						},
+						path_({
+							d: 'M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z'
+						}))),
 				search__input_())
 		)
 	}
@@ -101,10 +102,13 @@ export function blog__search_c_<env_T extends relement_env_T>(
 				attach(ul, ...search_result_a$().map((search_result:SearchResult, idx:number)=>{
 					const item = search_result.item
 					return (()=>
-						blog__card_c_<env_T>({
+						blog_card__li_<env_T>({
 							href: post__path__new(item),
-							class: idx === highlight__idx$() ? 'highlight' : '',
-							post: item
+							class: class_(
+								idx === highlight__idx$()
+									? 'shadow-highlight'
+									: ''),
+							dehydrated_post_meta: item
 						}))
 				}))
 			}
@@ -112,7 +116,7 @@ export function blog__search_c_<env_T extends relement_env_T>(
 	}
 	function search__input_() {
 		const input =
-			input_({
+			input_<'browser'>({
 				class:
 					'block w-full rounded border border-skin-fill border-opacity-40 bg-skin-fill py-3 pl-10 pr-3' +
 					' placeholder:italic placeholder:text-opacity-75 focus:border-skin-accent focus:outline-none',
@@ -124,7 +128,7 @@ export function blog__search_c_<env_T extends relement_env_T>(
 				onkeyup: input__onkeyup,
 				autocomplete: 'off',
 				autofocus: true,
-			}) as HTMLInputElement
+			})
 		input$._ = input
 		return input
 	}

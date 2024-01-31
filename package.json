@@ -30,7 +30,7 @@
 		"fuse.js": "^7.0.0",
 		"marked": "^11.2.0",
 		"rebuildjs": "^0.52.4",
-		"relementjs": "^0.60.2"
+		"relementjs": "^0.61.1"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
