@@ -1,6 +1,6 @@
 import { post_date_ } from '@btakita/domain--any--blog'
 import { class_ } from '@ctx-core/html'
-import { fragment_, type relement_env_T } from 'relementjs'
+import { fragment_, type nullish, type relement_env_T } from 'relementjs'
 import { div_, span_ } from 'relementjs/html'
 import { path_, svg_ } from 'relementjs/svg'
 export function blog_datetime__div_<env_T extends relement_env_T>({
@@ -9,7 +9,7 @@ export function blog_datetime__div_<env_T extends relement_env_T>({
 	size,
 	class: _class,
 }:{
-	datetime:string|Date
+	datetime:string|Date|nullish
 	locale?:Intl.LocalesArgument
 	size?:'sm'|'lg'
 	class?:string
@@ -52,9 +52,10 @@ function formatted_datetime__fragment_<env_T extends relement_env_T>({
 	datetime,
 	locale
 }:{
-	datetime:string|Date
+	datetime:string|Date|nullish
 	locale?:Intl.LocalesArgument
 }) {
+	if (!datetime) return '—'
 	locale ??= 'en-EN'
 	const _date = post_date_(datetime)
 	const date = _date.toLocaleDateString(locale, {
