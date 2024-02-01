@@ -1,6 +1,5 @@
 import { post_date_ } from '@btakita/domain--any--blog'
 import { class_ } from '@ctx-core/html'
-import { is_server_ } from 'ctx-core/all'
 import { fragment_, type relement_env_T } from 'relementjs'
 import { div_, span_ } from 'relementjs/html'
 import { path_, svg_ } from 'relementjs/svg'
