@@ -9,7 +9,6 @@
 		"./date": "./date/index.ts",
 		"./md": "./md/index.ts",
 		"./post": "./post/index.ts",
-		"./search": "./search/index.ts",
 		"./package.json": "./package.json"
 	},
 	"files": [
@@ -19,18 +18,14 @@
 		"card",
 		"date",
 		"md",
-		"post",
-		"search"
+		"post"
 	],
 	"dependencies": {
 		"@btakita/domain--any--blog": "workspace:*",
-		"@ctx-core/dom": "^15.3.22",
-		"@ctx-core/html": "^11.8.4",
 		"ctx-core": "^5.36.4",
-		"fuse.js": "^7.0.0",
 		"marked": "^11.2.0",
 		"rebuildjs": "^0.52.9",
-		"relementjs": "^0.61.6"
+		"relementjs": "^0.62.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"

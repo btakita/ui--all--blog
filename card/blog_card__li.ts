@@ -1,17 +1,17 @@
 import { type dehydrated_post_meta_T } from '@btakita/domain--any--blog'
-import { class_, style_ } from '@ctx-core/html'
+import { class_, style_ } from 'ctx-core/html'
 import { slug } from 'github-slugger'
-import { type relement_env_T } from 'relementjs'
+import { memo_, type relement_env_T, type rmemo_T, run_or_val_ } from 'relementjs'
 import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'
 import { blog_datetime__div_ } from '../date/index.js'
 export function blog_card__li_<env_T extends relement_env_T>({
-	class:_class,
+	class: _class,
 	href,
 	dehydrated_post_meta,
 	show_heading,
 	locale,
 }:{
-	class?:string
+	class?:string|(()=>string)
 	href?:string
 	dehydrated_post_meta:dehydrated_post_meta_T
 	show_heading?:boolean
@@ -34,10 +34,11 @@ export function blog_card__li_<env_T extends relement_env_T>({
 	}
 	return (
 		li_<env_T>({
-			class: class_(
-				'Card',
-				'my-6',
-				_class)
+			class: memo_(()=>
+				class_(
+					'Card',
+					'my-6',
+					run_or_val_(_class)))
 		}, [
 			a_({
 				href,
