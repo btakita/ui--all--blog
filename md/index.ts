@@ -1,1 +1,1 @@
-export * from './md__raw.ts'
+export * from './md__raw.js'
