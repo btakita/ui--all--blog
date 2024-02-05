@@ -8,7 +8,6 @@
 		"./card": "./card/index.ts",
 		"./date": "./date/index.ts",
 		"./md": "./md/index.ts",
-		"./post": "./post/index.ts",
 		"./package.json": "./package.json"
 	},
 	"files": [
