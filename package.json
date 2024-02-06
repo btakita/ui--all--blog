@@ -1,8 +1,29 @@
 {
-	"name": "@btakita/ui--any--blog",
+	"name": "@rappstack/ui--any--blog",
 	"type": "module",
 	"version": "0.0.0",
 	"types": "./index.ts",
+	"description": "UI library targeting the browser & server for blogs",
+	"keywords": [
+		"rappstack",
+		"reactive",
+		"full-stack",
+		"domain",
+		"isomorphic",
+		"browser",
+		"server",
+		"blog"
+	],
+	"homepage": "https://github.com/rappstack/ui--any--blog",
+	"bugs": {
+		"url": "https://github.com/rappstack/ui--any--blog/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rappstack/ui--any--blog.git"
+	},
+	"license": "Apache-2.0",
+	"author": "Brian Takita",
 	"exports": {
 		".": "./index.ts",
 		"./card": "./card/index.ts",
@@ -20,7 +41,7 @@
 		"post"
 	],
 	"dependencies": {
-		"@btakita/domain--any--blog": "workspace:*",
+		"@rappstack/domain--any--blog": "workspace:*",
 		"ctx-core": "^5.38.1",
 		"marked": "^12.0.0",
 		"rebuildjs": "^0.55.1",
