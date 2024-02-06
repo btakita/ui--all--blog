@@ -1,7 +1,7 @@
-import { type dehydrated_post_meta_T } from '@btakita/domain--any--blog'
+import { type dehydrated_post_meta_T } from '@rappstack/domain--any--blog'
 import { class_, style_ } from 'ctx-core/html'
 import { slug } from 'github-slugger'
-import { memo_, type relement_env_T, type rmemo_T, run_or_val_ } from 'relementjs'
+import { memo_, type relement_env_T, run_or_val_ } from 'relementjs'
 import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'
 import { blog_datetime__div_ } from '../date/index.js'
 export function blog_card__li_<env_T extends relement_env_T>({
