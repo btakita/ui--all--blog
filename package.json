@@ -2,7 +2,6 @@
 	"name": "@rappstack/ui--any--blog",
 	"type": "module",
 	"version": "0.0.0",
-	"types": "./index.ts",
 	"description": "UI library targeting the browser & server for blogs",
 	"keywords": [
 		"rappstack",
@@ -24,6 +23,7 @@
 	},
 	"license": "Apache-2.0",
 	"author": "Brian Takita",
+	"types": "./index.ts",
 	"exports": {
 		".": "./index.ts",
 		"./card": "./card/index.ts",
@@ -37,8 +37,7 @@
 		"*.json",
 		"card",
 		"date",
-		"md",
-		"post"
+		"md"
 	],
 	"dependencies": {
 		"@rappstack/domain--any--blog": "workspace:*",
