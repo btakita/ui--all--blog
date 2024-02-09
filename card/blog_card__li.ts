@@ -1,4 +1,5 @@
-import { type dehydrated_post_meta_T, slug__new } from '@rappstack/domain--any--blog'
+import { type dehydrated_post_meta_T } from '@rappstack/domain--any--blog/post'
+import { slug__new } from '@rappstack/domain--any--blog/slug'
 import { class_, style_ } from 'ctx-core/html'
 import { memo_, type relement_env_T, run_or_val_ } from 'relementjs'
 import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'

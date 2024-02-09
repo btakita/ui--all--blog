@@ -1,4 +1,4 @@
-import { post_date_ } from '@rappstack/domain--any--blog'
+import { post_date_ } from '@rappstack/domain--any--blog/post'
 import { class_ } from 'ctx-core/html'
 import { fragment_, type nullish, type relement_env_T } from 'relementjs'
 import { div_, span_ } from 'relementjs/html'
