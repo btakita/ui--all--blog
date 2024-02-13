@@ -44,7 +44,7 @@
 		"ctx-core": "^6.2.1",
 		"marked": "^12.0.0",
 		"rebuildjs": "^0.61.1",
-		"relementjs": "^0.72.1"
+		"relementjs": "^0.72.2"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
