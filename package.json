@@ -28,6 +28,7 @@
 		".": "./index.ts",
 		"./card": "./card/index.ts",
 		"./date": "./date/index.ts",
+		"./icon": "./icon/index.ts",
 		"./md": "./md/index.ts",
 		"./package.json": "./package.json"
 	},
@@ -37,6 +38,7 @@
 		"*.json",
 		"card",
 		"date",
+		"icon",
 		"md"
 	],
 	"dependencies": {
