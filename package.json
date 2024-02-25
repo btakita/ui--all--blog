@@ -29,7 +29,6 @@
 		"./card": "./card/index.ts",
 		"./date": "./date/index.ts",
 		"./icon": "./icon/index.ts",
-		"./md": "./md/index.ts",
 		"./package.json": "./package.json"
 	},
 	"files": [
@@ -38,13 +37,11 @@
 		"*.json",
 		"card",
 		"date",
-		"icon",
-		"md"
+		"icon"
 	],
 	"dependencies": {
 		"@rappstack/domain--any--blog": "workspace:*",
 		"ctx-core": "^6.5.0",
-		"marked": "^12.0.0",
 		"rebuildjs": "^0.63.6",
 		"relementjs": "^0.73.7"
 	},
