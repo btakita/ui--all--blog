@@ -42,7 +42,7 @@
 	"dependencies": {
 		"@rappstack/domain--any--blog": "workspace:*",
 		"ctx-core": "^6.5.0",
-		"rebuildjs": "^0.63.6",
+		"rebuildjs": "^0.63.7",
 		"relementjs": "^0.73.7"
 	},
 	"devDependencies": {
