@@ -43,7 +43,7 @@
 		"@rappstack/domain--any--blog": "workspace:*",
 		"ctx-core": "^6.5.0",
 		"rebuildjs": "^0.63.7",
-		"relementjs": "^0.73.7"
+		"relementjs": "^0.74.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
