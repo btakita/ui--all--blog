@@ -1,22 +1,27 @@
 import { type dehydrated_post_meta_T } from '@rappstack/domain--any--blog/post'
 import { slug__new } from '@rappstack/domain--any--blog/slug'
 import { class_, style_ } from 'ctx-core/html'
-import { memo_, type relement_env_T, run_or_val_ } from 'relementjs'
+import { memo_, type relement_env_T, run_or_val_, type tag_dom_T, type wide_ctx_T } from 'relementjs'
+import { type tag_props_T } from 'relementjs/any'
 import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'
 import { blog_datetime__div_ } from '../date/index.js'
 export function blog_card__li_<env_T extends relement_env_T>({
+	ctx,
 	class: _class,
+	li_props,
 	href,
 	dehydrated_post_meta,
 	show_heading,
 	locale,
 }:{
+	ctx:wide_ctx_T,
 	class?:string|(()=>string)
+	li_props?:Exclude<tag_props_T<HTMLLIElement>, 'class'>
 	href?:string
 	dehydrated_post_meta:dehydrated_post_meta_T
 	show_heading?:boolean
 	locale?:Intl.LocalesArgument
-}) {
+}, ...children:tag_dom_T[]) {
 	const {
 		title,
 		pub_date,
@@ -38,7 +43,8 @@ export function blog_card__li_<env_T extends relement_env_T>({
 				class_(
 					'Card',
 					'my-6',
-					run_or_val_(_class)))
+					run_or_val_(_class))),
+			...li_props
 		}, [
 			a_({
 				href,
@@ -61,7 +67,8 @@ export function blog_card__li_<env_T extends relement_env_T>({
 				locale
 			}), p_({
 				class: class_('py-2')
-			}, description)
+			}, description),
+			...children
 		])
 	)
 }
