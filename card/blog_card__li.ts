@@ -9,6 +9,8 @@ export function blog_card__li_<env_T extends relement_env_T>({
 	ctx,
 	class: _class,
 	li_props,
+	a_class,
+	a_props,
 	href,
 	dehydrated_post_meta,
 	show_heading,
@@ -17,6 +19,8 @@ export function blog_card__li_<env_T extends relement_env_T>({
 	ctx:wide_ctx_T,
 	class?:string|(()=>string)
 	li_props?:Exclude<tag_props_T<HTMLLIElement>, 'class'>
+	a_class?:string
+	a_props?:Exclude<tag_props_T<HTMLAnchorElement>, 'class'>
 	href?:string
 	dehydrated_post_meta:dehydrated_post_meta_T
 	show_heading?:boolean
@@ -56,7 +60,9 @@ export function blog_card__li_<env_T extends relement_env_T>({
 					'decoration-dashed',
 					'underline-offset-4',
 					'focus-visible:no-underline',
-					'focus-visible:underline-offset-0')
+					'focus-visible:underline-offset-0',
+					a_class),
+				...a_props
 			}, [
 				show_heading
 					? h2_({ ...h_props }, title)
