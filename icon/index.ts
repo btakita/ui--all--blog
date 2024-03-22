@@ -1,3 +1,4 @@
+export * from './heroicons_rss.js'
 export * from './iconify_rss.js'
 export * from './tabler_brand_codepen.js'
 export * from './tabler_brand_discord.js'
