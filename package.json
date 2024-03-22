@@ -42,7 +42,7 @@
 	"dependencies": {
 		"@rappstack/domain--any--blog": "workspace:*",
 		"ctx-core": "^6.6.2",
-		"relementjs": "^0.75.2"
+		"relementjs": "^0.75.5"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
