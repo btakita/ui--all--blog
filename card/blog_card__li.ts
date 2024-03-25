@@ -15,6 +15,8 @@ export function blog_card__li_<env_T extends relement_env_T>({
 	dehydrated_post_meta,
 	show_heading,
 	locale,
+	datetime_class,
+	description_class,
 }:{
 	ctx:wide_ctx_T,
 	class?:string|(()=>string)
@@ -25,6 +27,8 @@ export function blog_card__li_<env_T extends relement_env_T>({
 	dehydrated_post_meta:dehydrated_post_meta_T
 	show_heading?:boolean
 	locale?:Intl.LocalesArgument
+	datetime_class?:string
+	description_class?:string
 }, ...children:tag_dom_T[]) {
 	const {
 		title,
@@ -69,10 +73,12 @@ export function blog_card__li_<env_T extends relement_env_T>({
 					: h3_({ ...h_props }, title)
 			]),
 			blog_datetime__div_<env_T>({
+				class: datetime_class ?? class_('pt-2'),
 				datetime: pub_date,
 				locale
-			}), p_({
-				class: class_('py-2')
+			}),
+			p_({
+				class: description_class ?? class_('pt-2')
 			}, description),
 			...children
 		])
