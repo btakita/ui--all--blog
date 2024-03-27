@@ -4,20 +4,8 @@ import { class_, style_ } from 'ctx-core/html'
 import { memo_, type relement_env_T, run_or_val_, type tag_dom_T, type wide_ctx_T } from 'relementjs'
 import { type tag_props_T } from 'relementjs/any'
 import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'
-import { blog_datetime__div_ } from '../date/index.js'
-export function blog_card__li_<env_T extends relement_env_T>({
-	ctx,
-	class: _class,
-	li_props,
-	a_class,
-	a_props,
-	href,
-	dehydrated_post_meta,
-	show_heading,
-	locale,
-	datetime_class,
-	description_class,
-}:{
+import { blog_author_date_reading_time__div_ } from './blog_author_date_reading_time__div.js'
+type blog_card__li_props_T = {
 	ctx:wide_ctx_T,
 	class?:string|(()=>string)
 	li_props?:Exclude<tag_props_T<HTMLLIElement>, 'class'>
@@ -29,7 +17,21 @@ export function blog_card__li_<env_T extends relement_env_T>({
 	locale?:Intl.LocalesArgument
 	datetime_class?:string
 	description_class?:string
-}, ...children:tag_dom_T[]) {
+}
+export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_props_T, ...children:tag_dom_T[]) {
+	const {
+		ctx,
+		class: _class,
+		li_props,
+		a_class,
+		a_props,
+		href,
+		dehydrated_post_meta,
+		show_heading,
+		locale,
+		datetime_class,
+		description_class,
+	} = $p
 	const {
 		title,
 		pub_date,
@@ -72,10 +74,9 @@ export function blog_card__li_<env_T extends relement_env_T>({
 					? h2_({ ...h_props }, title)
 					: h3_({ ...h_props }, title)
 			]),
-			blog_datetime__div_<env_T>({
-				class: datetime_class ?? class_('pt-2'),
-				datetime: pub_date,
-				locale
+			blog_author_date_reading_time__div_({
+				ctx,
+				dehydrated_post_meta
 			}),
 			p_({
 				class: description_class ?? class_('pt-2')
