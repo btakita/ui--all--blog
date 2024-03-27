@@ -20,7 +20,6 @@ type blog_card__li_props_T = {
 }
 export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_props_T, ...children:tag_dom_T[]) {
 	const {
-		ctx,
 		class: _class,
 		li_props,
 		a_class,
@@ -28,14 +27,11 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 		href,
 		dehydrated_post_meta,
 		show_heading,
-		locale,
-		datetime_class,
 		description_class,
 	} = $p
 	const {
 		title,
-		pub_date,
-		description
+		description,
 	} = dehydrated_post_meta
 	const h_props = {
 		style: style_({
@@ -75,8 +71,7 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 					: h3_({ ...h_props }, title)
 			]),
 			blog_author_date_reading_time__div_({
-				ctx,
-				dehydrated_post_meta
+				dehydrated_post_meta,
 			}),
 			p_({
 				class: description_class ?? class_('pt-2')
