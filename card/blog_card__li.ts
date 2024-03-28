@@ -3,7 +3,7 @@ import { slug__new } from '@rappstack/domain--any--blog/slug'
 import { class_, style_ } from 'ctx-core/html'
 import { memo_, type relement_env_T, run_or_val_, type tag_dom_T, type wide_ctx_T } from 'relementjs'
 import { type tag_props_T } from 'relementjs/any'
-import { a_, h2_, h3_, li_, p_ } from 'relementjs/html'
+import { a_, h2_, li_, p_ } from 'relementjs/html'
 import { blog_author_date_reading_time__div_ } from './blog_author_date_reading_time__div.js'
 type blog_card__li_props_T = {
 	ctx:wide_ctx_T,
@@ -13,7 +13,6 @@ type blog_card__li_props_T = {
 	a_props?:Exclude<tag_props_T<HTMLAnchorElement>, 'class'>
 	href?:string
 	dehydrated_post_meta:dehydrated_post_meta_T
-	show_heading?:boolean
 	locale?:Intl.LocalesArgument
 	datetime_class?:string
 	description_class?:string
@@ -26,28 +25,17 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 		a_props,
 		href,
 		dehydrated_post_meta,
-		show_heading,
 		description_class,
 	} = $p
 	const {
 		title,
 		description,
 	} = dehydrated_post_meta
-	const h_props = {
-		style: style_({
-			'view-transition-name': slug__new(title)
-		}),
-		class: class_(
-			'text-lg',
-			'font-medium',
-			'decoration-dashed',
-			'hover:underline'),
-	}
 	return (
 		li_<env_T>({
 			class: memo_(()=>
 				class_(
-					'Card',
+					'blog_card__li',
 					'my-6',
 					run_or_val_(_class))),
 			...li_props
@@ -56,25 +44,32 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 				href,
 				class: class_(
 					'inline-block',
-					'text-lg',
 					'font-medium',
 					'text-skin-accent',
 					'decoration-dashed',
 					'underline-offset-4',
 					'focus-visible:no-underline',
 					'focus-visible:underline-offset-0',
+					'prose',
 					a_class),
 				...a_props
 			}, [
-				show_heading
-					? h2_({ ...h_props }, title)
-					: h3_({ ...h_props }, title)
+				h2_({
+					style: style_({
+						'view-transition-name': slug__new(title)
+					}),
+					class: class_(
+						'decoration-dashed',
+						'hover:underline'),
+				}, title)
 			]),
 			blog_author_date_reading_time__div_({
 				dehydrated_post_meta,
+				class: 'my-3',
+				copy_class: 'italic'
 			}),
 			p_({
-				class: description_class ?? class_('pt-2')
+				class: description_class
 			}, description),
 			...children
 		])

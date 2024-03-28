@@ -6,9 +6,10 @@ type blog_author_date_reading_time__div_props_T = {
 	dehydrated_post_meta:dehydrated_post_meta_T
 	blog_post__text?:string
 	class?:string
+	copy_class?:string
 }
 export function blog_author_date_reading_time__div_($p:blog_author_date_reading_time__div_props_T) {
-	let { dehydrated_post_meta, blog_post__text } = $p
+	let { dehydrated_post_meta, blog_post__text, copy_class } = $p
 	const { author, author_img_url, pub_date } = dehydrated_post_meta
 	const blog_post__estimate_read_minutes = blog_post__estimate_read_minutes__new(blog_post__text)
 	return (
@@ -17,7 +18,6 @@ export function blog_author_date_reading_time__div_($p:blog_author_date_reading_
 				'flex',
 				'flex-row',
 				'w-full',
-				'mb-6',
 				'text-base',
 				$p.class),
 		}, [
@@ -38,7 +38,8 @@ export function blog_author_date_reading_time__div_($p:blog_author_date_reading_
 					'inline-flex',
 					'flex-col',
 					'ml-4',
-					'text-skin-base')
+					'text-skin-base',
+					copy_class)
 			}, [
 				span_({ class: 'sr-only' }, 'Author:'),
 				author,
@@ -54,7 +55,8 @@ export function blog_author_date_reading_time__div_($p:blog_author_date_reading_
 							'ml-auto',
 							'flex',
 							'items-end',
-							'text-skin-base')
+							'text-skin-base',
+							copy_class)
 					}, [
 						blog_post__estimate_read_minutes,
 						' minute',
