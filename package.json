@@ -41,11 +41,10 @@
 	],
 	"dependencies": {
 		"@rappstack/domain--any--blog": "workspace:*",
-		"ctx-core": "^6.7.0",
-		"relementjs": "^0.77.0"
+		"ctx-core": "^6.7.1",
+		"relementjs": "^0.77.1"
 	},
-	"devDependencies": {
-	},
+	"devDependencies": {},
 	"peerDependencies": {
 		"typescript": "^5.4.3"
 	}
