@@ -1,5 +1,6 @@
 import { type dehydrated_post_meta_T } from '@rappstack/domain--any--blog/post'
 import { slug__new } from '@rappstack/domain--any--blog/slug'
+import { md__inline_raw_, md__raw_ } from '@rappstack/ui--any/md'
 import { class_, style_ } from 'ctx-core/html'
 import { memo_, type relement_env_T, run_or_val_, type tag_dom_T, type wide_ctx_T } from 'relementjs'
 import { type tag_props_T } from 'relementjs/any'
@@ -30,6 +31,7 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 	const {
 		title,
 		description,
+		description_md,
 	} = dehydrated_post_meta
 	return (
 		li_<env_T>({
@@ -37,6 +39,8 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 				class_(
 					'blog_card__li',
 					'my-6',
+					'[&>ul]:list-disc',
+					'[&>ul]:pl-4',
 					run_or_val_(_class))),
 			...li_props
 		}, [
@@ -68,9 +72,9 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 				class: 'my-3',
 				copy_class: 'italic'
 			}),
-			p_({
-				class: description_class
-			}, description),
+			description_md
+				? md__raw_(description_md)
+				: p_({ class: description_class }, description),
 			...children
 		])
 	)
