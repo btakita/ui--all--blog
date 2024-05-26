@@ -11,6 +11,8 @@ type blog_card__li_props_T = {
 	li_props?:Exclude<tag_props_T<HTMLLIElement>, 'class'>
 	a_class?:string
 	a_props?:Exclude<tag_props_T<HTMLAnchorElement>, 'class'>
+	h2_class?:string
+	h2_props?:Exclude<tag_props_T<HTMLAnchorElement>, 'class'>
 	href?:string
 	dehydrated_post_meta:dehydrated_post_meta_T
 	locale?:Intl.LocalesArgument
@@ -23,6 +25,8 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 		li_props,
 		a_class,
 		a_props,
+		h2_class,
+		h2_props,
 		href,
 		dehydrated_post_meta,
 		description_class,
@@ -63,7 +67,9 @@ export function blog_card__li_<env_T extends relement_env_T>($p:blog_card__li_pr
 					}),
 					class: class_(
 						'decoration-dashed',
-						'hover:underline'),
+						'hover:underline',
+						h2_class),
+					...h2_props,
 				}, title)
 			]),
 			blog_author_date_reading_time__div_({
