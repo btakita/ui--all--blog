@@ -1,3 +1,6 @@
+export * from './cruip_facebook.js'
+export * from './cruip_github.js'
+export * from './cruip_twitter.js'
 export * from './heroicons_rss.js'
 export * from './iconify_rss.js'
 export * from './tabler_brand_codepen.js'
