@@ -41,8 +41,8 @@
 	],
 	"dependencies": {
 		"@rappstack/domain--any--blog": "workspace:*",
-		"ctx-core": "^7.2.18",
-		"relementjs": "^0.80.17"
+		"ctx-core": "^7.2.19",
+		"relementjs": "^0.80.18"
 	},
 	"devDependencies": {},
 	"peerDependencies": {
